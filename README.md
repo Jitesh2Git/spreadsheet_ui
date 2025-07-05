@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# 🧾 React Spreadsheet UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a static React prototype of a spreadsheet interface.
 
-Currently, two official plugins are available:
+- ✅ Pixel-close UI matches Figma specification
+- ✅ All buttons, tabs, and interactive elements **log to console or reflect UI state change**
+- ✅ Navigation with **arrow keys across cells**
+- ✅ `npm run lint` and `npm run type-check` **pass with no errors**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Preview
 
-## Expanding the ESLint configuration
+[https://spreadsheet-ui.netlify.app](https://spreadsheet-ui.netlify.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- ⚛️ React 18 (Vite)
+- 🟦 TypeScript
+- 💨 Tailwind CSS
+- 🧱 Custom Table Component (no external table library used)
+- 🧪 ESLint + Prettier
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📂 Project Structure (Simplified)
+
+```
+spreadsheet_app/
+├── public/
+├── src/
+│   ├── assets/                      # Icons and image assets
+│   │   ├── icons/
+│   │   │   ├── arrow-sync.png
+│   │   │   ├── link.png
+│   │   │   ├── arrow-split.png
+│   │   │   └── arrow-split-gray.png
+│   │   └── ...
+│   ├── components/                 # UI components
+│   │   ├── Header.tsx              # Top navigation bar with breadcrumbs
+│   │   ├── Footer.tsx              # Bottom tab navigation
+│   │   ├── ToolBar.tsx             # Filter/search actions toolbar
+│   │   ├── TableGrid.tsx           # Main grid/table component
+│   │   ├── Head1.tsx               # First header row with grouped column titles
+│   │   ├── Head2.tsx               # Second header row with individual column headers
+│   │   └── TableBody.tsx           # Table body rendering the grid rows
+│   └── App.tsx
+├── index.html
+├── vite.config.ts
+├── tailwind.config.js
+└── README.md                       # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ▶️ Getting Started Locally
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Jitesh2Git/spreadsheet_ui.git
+cd spreadsheet-ui
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start development server
+
+```bash
+npm run dev
+```
+
+App will run at: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## ✅ Available Scripts
+
+```bash
+npm run dev           # Start local dev server
+npm run lint          # Lint the codebase (ESLint)
+npm run type-check    # Run TypeScript type checks
 ```
